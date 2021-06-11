@@ -1,6 +1,6 @@
 {
-  "name": "@mykurisu-fast-nest/cli",
-  "version": "0.0.2-beta.0",
+  "name": "@mykurisu/fast-nest-cli",
+  "version": "0.0.0",
   "description": "帮助大家快速初始化基于Nest.js的node后端服务",
   "author": "mykurisu",
   "main": "index.js",
