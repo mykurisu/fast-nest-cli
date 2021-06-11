@@ -7,6 +7,9 @@
   "bin": {
     "fast-nest": "./bin/fast-nest.js"
   },
+  "scripts": {
+    "beta": "npm version prerelease --preid=beta"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mykurisu/fast-nest-cli.git"

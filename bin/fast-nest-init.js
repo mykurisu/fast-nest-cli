@@ -86,12 +86,12 @@ if (!stepFlag) {
 function creator(rootName, answers) {
     answers.projectName = projectName
     answers.projectVersion = '0.0.1'
-    const url = 'https://github.com/mykurisu/fast-nest-template.git'
+    const url = 'https://github.com/mykurisu/fast-nest.git'
     const cmd = `git clone ${url} download-temp`
     const templateSrc = `${process.cwd()}/download-temp`
     const downloadSpinner = ora(`正在下载项目模板，源地址：${url}`)
     downloadSpinner.start()
-    child_process.exec(cmd, {}, (err, stdout, stderr) => {
+    child_process.exec(cmd, {}, (err) => {
         if (err) {
             downloadSpinner.fail()
             console.log(err)
