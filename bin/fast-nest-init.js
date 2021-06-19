@@ -74,9 +74,9 @@ if (!stepFlag) {
     ]).then(async answers => {
         const spinner = ora('获取依赖版本...')
         spinner.start()
-        answers['loggerVerion'] = await latestVersion('@mykurisu-fast-nest/logger')
-        answers['mongoVersion'] = await latestVersion('@mykurisu-fast-nest/mongo')
-        answers['redisVersion'] = await latestVersion('@mykurisu-fast-nest/redis')
+        answers['loggerVerion'] = await latestVersion('@mykurisu/fast-nest-logger')
+        // answers['mongoVersion'] = await latestVersion('@mykurisu/fast-nest-mongo')
+        // answers['redisVersion'] = await latestVersion('@mykurisu/fast-nest-redis')
         spinner.succeed('获取依赖完成')
         creator(rootName, answers)
     })
@@ -85,10 +85,10 @@ if (!stepFlag) {
 
 function creator(rootName, answers) {
     answers.projectName = projectName
-    answers.projectVersion = '0.0.1'
+    answers.projectVersion = '0.0.0'
     const url = 'https://github.com/mykurisu/fast-nest.git'
-    const cmd = `git clone ${url} download-temp`
-    const templateSrc = `${process.cwd()}/download-temp`
+    const cmd = `git clone -b main ${url} .fast-nest-temp`
+    const templateSrc = `${process.cwd()}/.fast-nest-temp`
     const downloadSpinner = ora(`正在下载项目模板，源地址：${url}`)
     downloadSpinner.start()
     child_process.exec(cmd, {}, (err) => {
@@ -111,7 +111,7 @@ function creator(rootName, answers) {
         Metalsmith(process.cwd())
             .metadata(metadata)
             .clean(false)
-            .source('download-temp')
+            .source('.fast-nest-temp')
             .destination(rootName)
             .use((files, metalsmith, done) => {
                 const meta = metalsmith.metadata()

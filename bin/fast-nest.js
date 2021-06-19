@@ -6,6 +6,3 @@ program.version(packageJson.version)
 	.command('init', '创建新项目')
 	.command('module', '创建新模块')
 	.parse(process.argv)
-
-
-program.parse(process.argv)
